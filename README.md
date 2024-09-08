@@ -64,7 +64,7 @@ go run main.go
 
 ## Google Sheet Example
 
-The provided Google Sheet consists of two sheets:
+The provided Google Sheet consists of two sheets. You can view the example sheet [here](https://docs.google.com/spreadsheets/d/1upZq9QCvNK9jPlx6LB7tNt9TecUR_QU89P0mbVBZ9nw/edit?usp=sharing).
 
 1. **Seed Upload** (Sheet 1): This sheet contains the seed data to upload to start.gg.
 2. **Phase Export** (Sheet 2): This sheet contains an export from start.gg's bracket phase.
