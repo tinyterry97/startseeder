@@ -62,6 +62,7 @@ go run main.go
 If there are errors, the script will print the error messages returned by the API. Make sure:
 - The Phase ID is valid.
 - The Google Sheets CSV is properly formatted.
+- You have admin rights for the tournament.
 - The auth token has the correct permissions.
 
 Example output for an error:
