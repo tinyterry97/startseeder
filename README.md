@@ -9,8 +9,10 @@ This script imports seed mappings from a Google Sheets CSV into a specific phase
 2. [Requirements](#requirements)
 3. [How to Get Required IDs and Tokens](#how-to-get-required-ids-and-tokens)
 4. [Setup and Usage](#setup-and-usage)
-5. [Error Handling](#error-handling)
-6. [Troubleshooting](#troubleshooting)
+5. [Google Sheet Example](#google-sheet-example)
+6. [Error Handling](#error-handling)
+7. [Troubleshooting](#troubleshooting)
+8. [Success Response](#success-response)
 
 ## Overview
 
@@ -44,25 +46,60 @@ This Go script reads seed mappings from a Google Sheets CSV and updates them in 
 2. Create or log in to your start.gg developer account.
 3. Generate a new API token.
 
+**Note**: You must be an admin of the tournament to generate and use an API token for seeding updates.
+
 ## Setup and Usage
 
-1. Clone the repository.
+1. Clone the repository, or directly download the main.go file.
 2. Set up the environment variables:
    - `phaseId` (replace with the actual Phase ID)
    - `sheetsKey` (replace with your Google Sheets key)
    - `authToken` (replace with your start.gg API token)
+
 3. Run the script:
 
 ```bash
 go run main.go
 ```
 
+## Google Sheet Example
+
+The provided Google Sheet consists of two sheets:
+
+1. **Seed Upload** (Sheet 1): This sheet contains the seed data to upload to start.gg.
+2. **Phase Export** (Sheet 2): This sheet contains an export from start.gg's bracket phase.
+
+### **Important: The first sheet (Seed Upload) should always contain the seeding data to be uploaded.** The Google Sheet should remain public during the upload process. If needed, the sheet can be set to private after the seeding has been successfully uploaded.
+
+### Seed Upload (Sheet 1)
+
+This sheet contains the following columns:
+- **SeedNum**: The seed number in the tournament.
+- **SeedId**: The unique seed identifier from start.gg.
+
+### Phase Export (Sheet 2)
+
+This sheet is an export from start.gg and contains:
+- **Phase Wave Pool**: The phase and pool information.
+- **Pool Seed**: The player's seed within their pool.
+- **Phase Seed**: The player's seed within the phase.
+- **Entrant**: The name of the player/team.
+- **GamerTag**: The player's gamer tag.
+- **Seed ID**: The unique seed identifier from start.gg, used for mapping in uploads.
+
+### Instructions for Exporting Data from start.gg
+
+1. Go to the tournament page on start.gg.
+2. Select the phase you want to export.
+3. Follow the steps in the [start.gg export guide](https://help.start.gg/en/articles/1465733-event-result-reporting#:~:text=You%20can%20export%20the%20results,phase%20you%20want%20to%20export) to export the phase seeding as a CSV file.
+4. Use this export to cross-check or prepare the data for uploading.
+
 ## Error Handling
 
 If there are errors, the script will print the error messages returned by the API. Make sure:
 - The Phase ID is valid.
 - The Google Sheets CSV is properly formatted.
-- You have admin rights for the tournament.
+- **You have admin rights for the tournament**.
 - The auth token has the correct permissions.
 
 Example output for an error:
@@ -109,4 +146,3 @@ On success, the script will print:
 ```
 
 This confirms that the seeds have been successfully imported to the phase.
-
