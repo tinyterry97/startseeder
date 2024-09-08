@@ -69,7 +69,8 @@ The provided Google Sheet consists of two sheets:
 1. **Seed Upload** (Sheet 1): This sheet contains the seed data to upload to start.gg.
 2. **Phase Export** (Sheet 2): This sheet contains an export from start.gg's bracket phase.
 
-### **Important: The first sheet (Seed Upload) should always contain the seeding data to be uploaded.** The Google Sheet should remain public during the upload process. If needed, the sheet can be set to private after the seeding has been successfully uploaded.
+### **Important: The first sheet (Seed Upload) should always contain the seeding data to be uploaded.** 
+                  The Google Sheet should remain public during the upload process. If needed, the sheet can be set to private after the seeding has been successfully uploaded.
 
 ### Seed Upload (Sheet 1)
 
